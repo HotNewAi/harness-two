@@ -19,6 +19,9 @@
 
 ## Git 与评审
 
+- 开发任务按 `docs/AGENT_WORKFLOW.md` 由 Agent 1 实现、Agent 2 只读审查；修复后对新 diff 复查。
+- Agent 2 的结论必须基于可定位证据；验证未运行或被阻塞时要如实标记。
+- 用户负责需要人类授权的合并、发布和外部副作用。
 - commit 尽量保持范围清晰、描述准确。
 - 提交或发 PR 前，确认文档、示例、脚本和 history 是否已经反映最终状态。
 - 复杂或高风险改动，先落一份 execution plan 到 `docs/exec-plans/`。

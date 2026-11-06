@@ -1,6 +1,6 @@
-# harness-template-cn
+# harness-two
 
-这个仓库是一个面向 Agent 协作开发的基础模板。
+这个仓库是一个双 Agent 协作开发模板：Agent 1 实现，Agent 2 独立审查并反馈，Agent 1 修复后再次送审。每项开发任务从 [双 Agent 工作流](docs/AGENT_WORKFLOW.md) 和两个[角色提示词](docs/agent-prompts/)开始。
 
 `AGENTS.md` 故意保持简短，只负责做导航，不负责塞满所有规则。仓库内的 `docs/` 才是本地知识的正式来源。
 
@@ -8,6 +8,7 @@
 
 ## 每轮开始先读
 
+- `docs/AGENT_WORKFLOW.md`：Agent 1 实现、Agent 2 只读审查和返修闭环。
 - `docs/REPO_COLLAB_GUIDE.md`：仓库级协作、提交、文档同步与测试约定。
 - `docs/ARCHITECTURE.md`：仓库整体结构和预期边界。
 - `docs/design-docs/core-beliefs.md`：Agent-first 的工作原则和这个模板的设计出发点。

@@ -1,31 +1,28 @@
-# harness-template-cn
+# harness-two
 
-English version: [`harness-template`](https://github.com/iFurySt/harness-template)
+来源：本仓库基于中文模板 [`iFurySt/harness-template-cn`](https://github.com/iFurySt/harness-template-cn) 派生，保留其 Git 历史与模板文档结构，并在此基础上增加双 Agent 协作流程。英文模板参考 [`iFurySt/harness-template`](https://github.com/iFurySt/harness-template)。
+
+公共仓库：[`HotNewAi/harness-two`](https://github.com/HotNewAi/harness-two)
 
 ## 简介
 
-一个面向 Agent 协作开发的基础仓库模板，可以用来启动任何你想做的产品或服务。关于如何品尝，可以参考这篇文章：[日常Harness](https://www.ifuryst.com/blog/2026/daily-harness/)
+harness-two 是一个双 Agent 协作开发模板：Agent 1 负责理解需求、编写和修改程序；Agent 2 在独立会话中只读检查变更、报告可复现的问题；Agent 1 修复后再交由 Agent 2 复查。工作流和角色提示词见 [双 Agent 开发与审查流程](docs/AGENT_WORKFLOW.md)。
+
+模板不绑定模型供应商，也不内置模型 API 调度器。你可以在支持的宿主中配置两个模型/Agent；不支持自动交接时，按流程手动传递 diff 和审查结果。
 
 ## 快速开始
 
-可以在这个仓库右上角直接使用 GitHub 的模板流程：
-
-1. 选择 **Use this template**。
-2. 选择 [**Create a new repository**](https://github.com/new?template_name=harness-template-cn&template_owner=iFurySt)。
-
-也可以在新仓库或已有仓库里用 [`harness-cli`](https://github.com/iFurySt/harness-cli) 初始化。先通过 npm 安装：
-
 ```sh
-npm install -g @ifuryst/harness-cli
+git clone https://github.com/HotNewAi/harness-two.git
+cd harness-two
 ```
 
-然后运行：
+1. 可直接将本仓库作为项目起点，或在现有项目中采用这些模板文档。
+2. 初始化项目名：`make init PROJECT=你的项目名`。建议使用小写字母、数字和连字符；该命令更新 README 与 `AGENTS.md` 中的模板名。
+3. 在宿主平台配置两个独立模型/Agent 会话，分别加载 `docs/agent-prompts/agent-1-implementer.md` 与 `docs/agent-prompts/agent-2-reviewer.md`。尽可能给 Agent 2 配置只读工作区权限。
+4. 按 [双 Agent 工作流](docs/AGENT_WORKFLOW.md) 传递需求、验收标准、完整 diff 和实际验证结果；Agent 1 根据审查意见修复后再次交给 Agent 2。
 
-```sh
-harness-cli init --language zh
-```
-
-`harness-cli` 需要 Node.js 18+，并且本机 `PATH` 中需要有 Go。
+详细的克隆、初始化、Git 提交和审查交接步骤见[使用说明](docs/USAGE.md)。本仓库没有自动模型调度器或统一测试命令。更完整的仓库规则从 [`AGENTS.md`](AGENTS.md) 开始。
 
 ## 许可证
 

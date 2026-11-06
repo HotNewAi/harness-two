@@ -10,7 +10,7 @@ fi
 project_name="$1"
 repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-perl -0pi -e "s/harness-template-cn/${project_name}/g; s/harness-template/${project_name}/g" \
+PROJECT_NAME="${project_name}" perl -0pi -e 's/harness-two/$ENV{PROJECT_NAME}/g' \
   "${repo_root}/README.md" \
   "${repo_root}/AGENTS.md"
 

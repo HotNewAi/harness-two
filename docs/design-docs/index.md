@@ -10,4 +10,5 @@
 
 ## 初始文档
 
-- `core-beliefs.md`
+- `core-beliefs.md`：Agent-first 的协作原则。
+- `../AGENT_WORKFLOW.md`：Agent 1 实现、Agent 2 独立审查的流程与职责边界。
